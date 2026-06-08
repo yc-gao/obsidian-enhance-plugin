@@ -13,10 +13,7 @@ export default class Main extends Plugin {
     async onload() {
         console.log('Loading plugin: ' + this.manifest.name);
 
-        this.registerMarkdownCodeBlockProcessor('runjs', async (source, el, ctx) => {
-            eval(source)
-        });
-        this.registerMarkdownCodeBlockProcessor('echart', async (source, el, ctx) => {
+        this.registerMarkdownCodeBlockProcessor('echart', async (source) => {
             eval(`${source}
                 el.style.width = '100%'
                 el.style.aspectRatio = '16 / 9'

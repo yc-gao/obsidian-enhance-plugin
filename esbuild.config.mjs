@@ -13,11 +13,15 @@ const context = await esbuild.context({
     treeShaking: true,
     minify: prod,
 
-    entryPoints: ["src/main.ts"],
-    outfile: "dist/main.js",
+    outdir: "dist",
+    entryPoints: ["src/main.ts", "src/styles.css", "src/manifest.json"],
     external: [
         "obsidian",
-        ...builtinModules],
+        ...builtinModules
+    ],
+    loader: {
+        ".json": "copy"
+    }
 });
 
 if (prod) {

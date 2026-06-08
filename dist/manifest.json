@@ -1,8 +1,8 @@
 {
-    "id": "obsidian-runjs-plugin",
-    "name": "RunJS Plugin",
+    "id": "obsidian-enhance-plugin",
+    "name": "Enhance Plugin",
     "version": "1.0.0",
     "minAppVersion": "0.15.0",
-    "description": "A plugin to run JavaScript code in Obsidian.",
+    "description": "A plugin to enhance Obsidian.",
     "isDesktopOnly": false
 }

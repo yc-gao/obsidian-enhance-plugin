@@ -1,10 +1,11 @@
 import { App, Plugin, PluginSettingTab } from 'obsidian';
 
-import { EChartsPlugin } from './echart';
+import { ECHARTS_DEFAULT_SETTINGS, EChartsPlugin } from './echart';
 import { GIT_DEFAULT_SETTINGS, GitPlugin } from './git';
 
 const DEFAULT_SETTINGS = {
-    git: GIT_DEFAULT_SETTINGS
+    git: GIT_DEFAULT_SETTINGS,
+    eCharts: ECHARTS_DEFAULT_SETTINGS
 };
 
 class SettingsTab extends PluginSettingTab {
@@ -34,7 +35,7 @@ export default class Main extends Plugin {
         console.log('Loading plugin: ' + this.manifest.name);
         await this.loadSettings();
 
-        this.eChartsPlugin = new EChartsPlugin(this);
+        this.eChartsPlugin = new EChartsPlugin(this, this.settings.eCharts);
         this.gitPlugin = new GitPlugin(this, this.settings.git);
 
         this.gitPlugin.load()

@@ -2,18 +2,15 @@ import { Notice, addIcon, Setting } from 'obsidian';
 
 import { pullGit, pushGit, commitGit, syncGit } from './utils';
 
-export interface GitSettings {
-    pathSpec: string;
-}
-export const GIT_DEFAULT_SETTINGS: GitSettings = {
+export const GIT_DEFAULT_SETTINGS = {
     pathSpec: '.'
 };
 
 export class GitPlugin {
     plugin: any;
-    settings: GitSettings;
+    settings: typeof GIT_DEFAULT_SETTINGS;
 
-    constructor(plugin: any, settings: GitSettings) {
+    constructor(plugin: any, settings: typeof GIT_DEFAULT_SETTINGS) {
         this.plugin = plugin;
         this.settings = settings;
     }

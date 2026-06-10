@@ -46,5 +46,11 @@ export class EChartsPlugin {
                 this.settings.aspectRatio = value;
                 await this.plugin.saveSettings();
             }));
+        new Setting(containerEl)
+            .setName('Echarts Contain Label')
+            .addToggle(toggle => toggle.setValue(this.settings.containLabel).onChange(async (value) => {
+                this.settings.containLabel = value;
+                await this.plugin.saveSettings();
+            }));
     }
 }

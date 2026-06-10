@@ -3,7 +3,8 @@ import { Setting } from 'obsidian';
 import * as echarts from 'echarts';
 
 export const ECHARTS_DEFAULT_SETTINGS = {
-    aspectRatio: '16 / 9'
+    aspectRatio: '16 / 9',
+    containLabel: true,
 };
 
 export class EChartsPlugin {
@@ -27,7 +28,11 @@ export class EChartsPlugin {
 
                 setTimeout(() => {
                     const chart = this.echarts.init(el)
-                    chart.setOption(option)
+                    chart.setOption(Object.assign({
+                        grid: {
+                            containLabel: ${this.settings.containLabel},
+                        }
+                    }, option))
                 })
                 `
             )

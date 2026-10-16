@@ -1,10 +1,9 @@
 import { promisify } from 'node:util';
 import * as child_process from 'node:child_process';
 
-async function execCommand(command: string, opts: { cwd: string }): Promise<string> {
+async function execCommand(command: string, opts: { cwd: string }): Promise<void> {
     const exec = promisify(child_process.exec);
-    const { stdout } = await exec(command, opts);
-    return stdout.trim();
+    await exec(command, opts);
 }
 
 export async function pullGit(path: string, rebase: boolean = false): Promise<void> {

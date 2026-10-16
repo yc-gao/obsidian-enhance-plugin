@@ -18,9 +18,7 @@ export class EChartsPlugin {
         this.settings = settings;
 
         this.echarts = echarts;
-    }
 
-    load() {
         this.plugin.registerMarkdownCodeBlockProcessor('echart', async (source: string) => {
             eval(`${source}
                 el.style.width = '100%'
